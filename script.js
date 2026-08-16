@@ -85,14 +85,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.key === "Escape" && modal?.classList.contains("is-open")) closeModal();
   });
 
-  // Görevli bilgilendirme metnini koyu kahverengi ve kalın yap.
+  // Görevli bilgilendirme başlığı ve metnini koyu kahverengi ve kalın yap.
+  const noticeHeading = document.querySelector(".section h2");
   const introText = document.querySelector(".intro-text");
-  if (introText) {
-    introText.style.setProperty("color", "#6b3f24", "important");
-    introText.style.setProperty("font-weight", "800", "important");
-  }
+  [noticeHeading, introText].forEach((element) => {
+    if (!element) return;
+    element.style.setProperty("color", "#6b3f24", "important");
+    element.style.setProperty("font-weight", "800", "important");
+  });
 
   const emphasisStyle = document.createElement("style");
-  emphasisStyle.textContent = ".intro-text { color: #6b3f24 !important; font-weight: 800 !important; }";
+  emphasisStyle.textContent = ".intro-text, .section h2:first-child { color: #6b3f24 !important; font-weight: 800 !important; }";
   document.head.appendChild(emphasisStyle);
 });
