@@ -84,4 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && modal?.classList.contains("is-open")) closeModal();
   });
+
+  // Görevli bilgilendirme metnini vurgula.
+  const introText = document.querySelector(".intro-text");
+  if (introText) {
+    introText.style.color = "#6b3f24";
+    introText.style.fontWeight = "800";
+  }
 });
